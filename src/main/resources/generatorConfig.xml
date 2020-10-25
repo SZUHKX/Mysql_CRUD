@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+<classPathEntry
+        location="D:\mysql\JDBC\mysql-connector-java-5.1.49.tar\mysql-connector-java-5.1.49\mysql-connector-java-5.1.49.jar"/>
+<context id="DB2Tables" targetRuntime="MyBatis3">
+    <!--<plugin type="org.mybatis.generator.plugins.ExamplePagePlugin"/>-->
+    <!--<plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>-->
+    <commentGenerator>
+        <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+        <property name="suppressAllComments" value="true"/>
+    </commentGenerator>
+
+    <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                    connectionURL="jdbc:mysql://localhost:3306/user"
+                    userId="root"
+                    password="123456">
+    </jdbcConnection>
+
+    <javaTypeResolver>
+        <property name="forceBigDecimals" value="false"/>
+    </javaTypeResolver>
+    <javaModelGenerator targetPackage="com.example.demo.db.entity" targetProject="src/main/java">
+        <property name="enableSubPackages" value="true"/>
+        <property name="trimStrings" value="true"/>
+    </javaModelGenerator>
+    <sqlMapGenerator targetPackage="com.example.demo.db.mapper" targetProject="src/main/java">
+        <property name="enableSubPackages" value="true"/>
+    </sqlMapGenerator>
+    <javaClientGenerator type="XMLMAPPER" targetPackage="com.example.demo.db.mapper" targetProject="src/main/java">
+        <property name="enableSubPackages" value="true"/>
+    </javaClientGenerator>
+
+
+    <table tableName="ta1" domainObjectName="ta1" enableInsert="true"
+           enableDeleteByPrimaryKey="true"
+           enableSelectByPrimaryKey="true"
+           enableUpdateByPrimaryKey="true"
+           enableCountByExample="false"
+           enableDeleteByExample="false"
+           enableSelectByExample="false"
+           enableUpdateByExample="false">
+        <property name="useActualColumnNames" value="false"/>
+        <generatedKey column="id" sqlStatement="MYSQL" identity="true"/>
+    </table>
+
+</context>
+</generatorConfiguration>
